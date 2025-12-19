@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "home": "Home",
+    "members": "Members",
+    "works": "Development Works",
+    "notifications": "Notices",
+    "contact": "Contact"
+  },
+  "village": {
+    "name": "Astan Gram Panchayat",
+    "taluka": "Ratnagiri",
+    "district": "Ratnagiri",
+    "state": "Maharashtra"
+  },
+  "hero": {
+    "title": "Astan Gram Panchayat",
+    "subtitle": "Serving our community with transparency, dedication, and progress",
+    "meetTeam": "Meet Our Team",
+    "viewWork": "View Our Work"
+  },
+  "stats": {
+    "population": "Population",
+    "households": "Households",
+    "water": "Water Supply",
+    "electricity": "Electrification"
+  },
+  "members": {
+    "title": "Panchayat Members",
+    "subtitle": "Meet the dedicated team serving our village",
+    "sarpanch": {
+      "title": "Sarpanch",
+      "name": "Smt. Jyoti Vijay Nikam",
+      "phone": "+91 7822029166",
+      "tenure": "2022 to 2026"
+    },
+    "upSarpanch": {
+      "title": "Up-Sarpanch",
+      "name": "Shri. Rishikesh Dhondu More",
+      "phone": "+91 8169891600",
+      "tenure": "2022 to November 2026"
+    },
+    "gramSevak": {
+      "title": "Gram Panchayat Adhikari",
+      "name": "Shri. Mayuresh Nitin Wakade",
+      "phone": "+91 9881154658",
+      "role": "Gram Panchayat Officer"
+    },
+    "staff": {
+      "title": "Staff",
+      "clerk": {
+        "title": "Clerk",
+        "name": "Smt. Mamta Mangesh Jadhav",
+        "phone": "+91 9325565747"
+      },
+      "operator": {
+        "title": "Computer Operator",
+        "name": "Smt. Preeti Rupesh Paatne",
+        "phone": "+91 9082891174"
+      },
+      "shipai": {
+        "title": "Shipai",
+        "name": "Shri. Sandesh Shreedhar Salunkhe",
+        "phone": "+91 8080789174"
+      },
+      "other": {
+        "title": "Gram Rojgaar Sevak (MGNREGA)",
+        "name": "Shri. Sambhaji Tanaji Gorgaokar",
+        "phone": "+91 8669059247"
+      }
+    },
+    "panch": {
+      "title": "Panch Members",
+      "total": "90 Members",
+      "ward": "Ward"
+    }
+  },
+  "works": {
+    "title": "Development Works",
+    "subtitle": "Recent projects and initiatives for village development",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "budget": "Budget",
+    "year": "Year"
+  },
+  "notifications": {
+    "title": "Important Notices",
+    "subtitle": "Latest news and announcements from Gram Panchayat",
+    "viewAll": "View All Notices",
+    "important": "Important",
+    "general": "General",
+    "meeting": "Meeting",
+    "scheme": "Scheme"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our Gram Panchayat office",
+    "office": {
+      "title": "Office Information",
+      "address": "Address",
+      "addressFull": "Gram Panchayat Office\nAstan, Ratnagiri Taluka\nRatnagiri District, Maharashtra - 415730",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "hours": {
+      "title": "Office Hours",
+      "weekdays": "Monday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "closed": "Closed",
+      "note": "Note: For emergency services, please contact the Sarpanch directly."
+    }
+  },
+  "footer": {
+    "mission": "Committed to village development and community welfare",
+    "copyright": "© 2024 Astan Gram Panchayat. All rights reserved."
+  },
+  "info": {
+    "established": "Established: 11/08/1984",
+    "area": "Village Area: 3,429.106 Hectares",
+    "anganwadi": "Anganwadi Centers: 5",
+    "schools": "Government Schools: 6",
+    "privateSchools": "Private Schools: 2"
+  }
+}
+
