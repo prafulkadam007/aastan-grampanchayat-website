@@ -1,258 +1,96 @@
-# 🏛️ Gram Panchayat Website
+# Astan Gram Panchayat Website
 
-A modern, responsive website for village Gram Panchayat administration built with Next.js 14, TypeScript, and Tailwind CSS.
+Official bilingual (Marathi default + English) website for Astan Gram Panchayat, Khed taluka, Ratnagiri district, Maharashtra.
 
-## ✨ Features
+Built with Next.js 16 App Router, React 19, Tailwind v4, next-intl v4. Server-rendered, statically generated, GIGW-aligned.
 
-### Current Features (Ready to Use)
-- ✅ **Beautiful Modern UI** - Professional design with Indian flag colors
-- ✅ **Responsive Design** - Perfect on mobile, tablet, and desktop
-- ✅ **Member Showcase** - Display Sarpanch, Up-Sarpanch, Gram Sevak, and Panch members
-- ✅ **Development Works Gallery** - Showcase completed and ongoing projects
-- ✅ **Contact Information** - Office details, hours, and contact methods
-- ✅ **Statistics Dashboard** - Population, households, and infrastructure stats
-- ✅ **Smooth Navigation** - Sticky header with smooth scrolling
-- ✅ **SEO Optimized** - Better visibility on search engines
-
-### Easy to Add Later
-- 📋 **Certificate Applications** (Birth, Death, Income, Caste)
-- 💰 **Online Tax Payment Integration**
-- 📝 **Complaint/Grievance System**
-- 📢 **Notice Board & Announcements**
-- 📊 **Budget & Expenditure Reports**
-- 🗳️ **Meeting Minutes & Resolutions**
-- 📱 **SMS/Email Notifications**
-- 🔐 **Admin Panel for Staff**
-- 📄 **Document Downloads** (Forms, Certificates)
-- 🌾 **Schemes & Benefits Information**
-
-## 🚀 Quick Start
-
-### Local Development
+## Local development
 
 ```bash
-# Navigate to project
-cd grampanchayat-website
-
-# Install dependencies (already done)
 npm install
-
-# Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit http://localhost:3000 — middleware redirects to `/mr` (Marathi) by default. Switch to English at `/en`.
 
-## 📝 Customization Guide
+## Project layout
 
-### 1. Update Village Information
-
-Edit `app/page.tsx` and replace these placeholders:
-
-```typescript
-// Header Section (Line ~24-28)
-[Village Name] → Your village name
-[Taluka] → Your taluka
-[District] → Your district  
-[State] → Your state
-
-// Stats Section (Line ~80-110)
-Update population, households, and infrastructure numbers
-
-// Contact Section (Line ~390-420)
-Update address, phone, email, and PIN code
+```
+app/[locale]/        # all pages, server components, locale-prefixed
+components/          # layout / sections / cards / ui / seo
+content/             # typed TS data files (single source of truth)
+content/repositories.ts  # async functions used by pages — never import data files directly
+lib/                 # fonts, seo helpers, i18n helpers
+messages/{mr,en}.json    # UI chrome strings only (nav, button labels, page metadata)
+public/images/       # member, dev-works, gallery, og images
+public/downloads/    # PDF forms
 ```
 
-### 2. Add Member Photos
+## Editing content
 
-Replace the placeholder avatar with real photos:
+All real content lives in `/content/`. Each item carries both Marathi and English values inline:
 
-```typescript
-// Current placeholder (Line ~165):
-<div className="w-32 h-32 bg-gray-200 rounded-full...">
-  <Users className="w-16 h-16 text-gray-400" />
-</div>
-
-// Replace with:
-<Image 
-  src="/images/sarpanch.jpg" 
-  alt="Sarpanch Name"
-  width={128}
-  height={128}
-  className="rounded-full"
-/>
+```ts
+title: { mr: 'विकास प्रकल्प', en: 'Development Project' }
 ```
 
-**Add photos to:** `public/images/` folder (create if doesn't exist)
+To add or update items:
+- **Notices**: edit `content/notices.ts`
+- **Schemes**: edit `content/schemes.ts`
+- **Members**: edit `content/members.ts`
+- **Works**: edit `content/works.ts`
+- **Meetings / Gram Sabha**: edit `content/meetings.ts`
+- **Citizens' Charter**: edit `content/charter.ts`
+- **RTI contacts**: edit `content/rti.ts`
+- **Downloads**: edit `content/downloads.ts` (also drop the PDF in `public/downloads/`)
+- **Gallery**: edit `content/gallery.ts` (drop image in `public/images/gallery/`)
+- **Village identity** (population, contact, address): edit `content/village.ts`
 
-### 3. Add Project Images
+`messages/*.json` only holds UI chrome strings (nav labels, "View all", "Read more", page metadata titles). Don't put real content there.
 
-```typescript
-// Current placeholder (Line ~290):
-<div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600...">
-  <ImageIcon className="w-20 h-20 text-white opacity-50" />
-</div>
+After edits, the dev server auto-reloads. Slugs in `notices.ts` and `schemes.ts` become URLs (`/notices/<slug>`, `/schemes/<slug>`) — keep them stable.
 
-// Replace with:
-<Image 
-  src="/images/projects/road-construction.jpg"
-  alt="Road Construction Project"
-  width={400}
-  height={192}
-  className="w-full h-48 object-cover"
-/>
-```
+## Image guidelines
 
-### 4. Update Colors (Optional)
+| Category | Aspect / size              | Max file | Notes                       |
+|----------|----------------------------|----------|-----------------------------|
+| Members  | 4:5 portrait, 800×1000     | 200 KB   | Headshot                    |
+| Works    | 16:9 landscape, 1600×900   | 350 KB   | Carousel / cards            |
+| Gallery  | square or 16:9, 1600×       | 350 KB   |                             |
+| Office   | 1920×1280                   | 500 KB   | Hero (used on home)         |
 
-The website uses Indian flag colors (Orange, White, Green). To customize:
+Save as JPG or WebP, sRGB. Compress with squoosh.app or similar before committing.
 
-Edit `tailwind.config.ts`:
-```typescript
-theme: {
-  extend: {
-    colors: {
-      primary: '#FF6B35',  // Custom orange
-      secondary: '#2E8B57', // Custom green
-    }
-  }
-}
-```
+## Environment
 
-## 🌐 Deployment (10 Minutes)
+Copy `.env.example` to `.env.local`:
 
-### Option 1: Deploy to Vercel (Recommended - FREE)
-
-1. **Push to GitHub:**
-   ```bash
-   cd grampanchayat-website
-   git add .
-   git commit -m "Initial Gram Panchayat website"
-   
-   # Create new repo on GitHub, then:
-   git remote add origin https://github.com/yourusername/grampanchayat-website.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-2. **Deploy to Vercel:**
-   - Go to [vercel.com](https://vercel.com)
-   - Click "Add New Project"
-   - Import your GitHub repository
-   - Click "Deploy" (takes 2-3 minutes)
-   - Done! Your site is live at `yourproject.vercel.app`
-
-3. **Add Custom Domain (Optional):**
-   - Buy domain (e.g., `yourvillage.org.in` from GoDaddy/Namecheap)
-   - In Vercel Dashboard → Settings → Domains
-   - Add your domain and follow DNS instructions
-   - SSL certificate is automatically provided (FREE)
-
-### Option 2: Deploy to Netlify (Also FREE)
-
-1. Push code to GitHub (same as above)
-2. Go to [netlify.com](https://netlify.com)
-3. Click "Add new site" → "Import from Git"
-4. Select your repository
-5. Click "Deploy" - Done!
-
-## 📱 Mobile Optimization
-
-The website is fully responsive and mobile-first:
-- ✅ Touch-friendly buttons and links
-- ✅ Readable text on small screens
-- ✅ Optimized images for faster loading
-- ✅ Works on 2G/3G networks
-
-## 🔧 Technical Stack
-
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Icons:** Lucide React
-- **Deployment:** Vercel (recommended)
-- **Performance:** Static Site Generation (SSG)
-
-## 📊 Future Enhancements
-
-### Phase 2 (Can Add Anytime):
-1. **Certificate System**
-   ```typescript
-   // Add form for birth/death/income certificates
-   // Store in database (Supabase/Firebase)
-   // Generate PDFs
-   ```
-
-2. **Payment Integration**
-   ```typescript
-   // Integrate Razorpay/Paytm
-   // For property tax, water bills
-   ```
-
-3. **Admin Panel**
-   ```typescript
-   // Add NextAuth.js for authentication
-   // Create admin dashboard
-   // Manage members, projects, announcements
-   ```
-
-4. **Database Integration**
-   ```typescript
-   // Connect to Supabase (free tier)
-   // Store members, projects, applications
-   // Real-time updates
-   ```
-
-## 💰 Cost Breakdown
-
-| Service | Cost | Notes |
-|---------|------|-------|
-| Hosting (Vercel) | FREE | 100GB bandwidth/month |
-| SSL Certificate | FREE | Auto-included |
-| Domain (.in) | ~₹500/year | Optional |
-| **Total** | **FREE - ₹500/year** | Just domain cost |
-
-## 📞 Support
-
-For customization help or adding new features, the code is well-structured and easy to extend.
-
-### Common Tasks:
-
-**Add a new section:**
-```typescript
-// In app/page.tsx, add before footer:
-<section className="py-16 bg-white">
-  <div className="container mx-auto px-4">
-    {/* Your content */}
-  </div>
-</section>
-```
-
-**Add a new page:**
 ```bash
-# Create: app/schemes/page.tsx
-export default function SchemesPage() {
-  return <div>Schemes content</div>
-}
+cp .env.example .env.local
 ```
 
-**Change fonts:**
-```typescript
-// In app/layout.tsx
-import { Poppins } from "next/font/google";
-const poppins = Poppins({ weight: ["400", "600", "700"], subsets: ["latin"] });
+Set `NEXT_PUBLIC_SITE_URL` to the production URL (used in canonical/OG tags + sitemap).
+
+## Build & deploy
+
+```bash
+npm run lint
+npm run build
 ```
 
-## 🎨 Design Credits
+Deploy to Vercel: connect the GitHub repo, no config needed (Next.js auto-detected). Set `NEXT_PUBLIC_SITE_URL` in Vercel project env vars.
 
-- Color Scheme: Indian National Flag colors
-- Icons: Lucide React
-- Font: Inter (Google Fonts)
-- Layout: Custom design for Gram Panchayat needs
+## Architecture notes
 
----
+- **Server components everywhere except 3 islands**: `LanguageToggle`, `MobileNav`, `WorksCarousel`. The site is fully SSG.
+- **i18n routing**: `next-intl` middleware handles `/mr` and `/en` prefixes; default locale is `mr`.
+- **Repository pattern**: pages read content via `content/repositories.ts` async functions. Swapping to a CMS later replaces only those function bodies.
+- **SEO**: per-page `generateMetadata`, `app/sitemap.ts` covers both locales + dynamic notice/scheme slugs, `app/robots.ts`, JSON-LD `GovernmentOrganization` in the locale layout, `NewsArticle` on notice detail, `GovernmentService` on scheme detail. hreflang alternates emitted via `lib/seo.ts`.
+- **Accessibility**: skip link, `<main id="main-content">`, focus-visible outlines, `aria-*` on carousel and mobile nav, semantic table on Citizens' Charter, `prefers-reduced-motion` honored.
+- **Fonts**: Noto Sans Devanagari for Marathi, Inter for Latin. Switched per `<html lang>` via CSS variable.
 
-**Made with ❤️ for Indian Villages**
+## Common tasks
 
-For questions or support, create an issue in the repository.
-# aastan-grampanchayat-website
+- **Add a notice**: append to `notices` array in `content/notices.ts` with a unique `id` and `slug`. Build will re-prerender automatically.
+- **Add a member photo**: drop the image in `public/images/members/`, then update `photo:` path in `content/members.ts`.
+- **Update village info**: edit `content/village.ts` — that's the single source of truth for stats and contact.

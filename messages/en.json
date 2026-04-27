@@ -1,95 +1,154 @@
 {
   "nav": {
     "home": "Home",
+    "about": "About",
     "members": "Members",
     "works": "Development Works",
-    "notifications": "Notices",
-    "contact": "Contact"
+    "notices": "Notices",
+    "schemes": "Schemes",
+    "gramSabha": "Gram Sabha",
+    "rti": "RTI & Grievance",
+    "charter": "Citizens' Charter",
+    "gallery": "Gallery",
+    "downloads": "Downloads",
+    "contact": "Contact",
+    "privacy": "Privacy Policy"
   },
   "village": {
     "name": "Astan Gram Panchayat",
-    "taluka": "Ratnagiri",
+    "shortName": "Astan",
+    "taluka": "Khed",
     "district": "Ratnagiri",
-    "state": "Maharashtra"
+    "state": "Maharashtra",
+    "pin": "415730"
   },
   "hero": {
-    "title": "Astan Gram Panchayat",
-    "subtitle": "Serving our community with transparency, dedication, and progress",
+    "title": "Welcome",
+    "villageName": "Astan Gram Panchayat",
+    "subtitle": "In service of our village, together with our village",
     "meetTeam": "Meet Our Team",
     "viewWork": "View Our Work"
+  },
+  "quickActions": {
+    "title": "Quick Services",
+    "subtitle": "Important services at one tap",
+    "callSarpanch": "Call Sarpanch",
+    "callSarpanchDesc": "Direct contact",
+    "fileGrievance": "File Grievance",
+    "fileGrievanceDesc": "RTI & complaints",
+    "applyCertificate": "Apply for Certificate",
+    "applyCertificateDesc": "Birth, death, income",
+    "viewSchemes": "View Schemes",
+    "viewSchemesDesc": "Government benefits",
+    "stickyCallLabel": "Call Sarpanch"
   },
   "stats": {
     "population": "Population",
     "households": "Households",
+    "anganwadi": "Anganwadi",
+    "schools": "Govt. Schools",
     "water": "Water Supply",
     "electricity": "Electrification"
   },
   "members": {
     "title": "Panchayat Members",
     "subtitle": "Meet the dedicated team serving our village",
-    "sarpanch": {
-      "title": "Sarpanch",
-      "name": "Smt. Jyoti Vijay Nikam",
-      "phone": "+91 7822029166",
-      "tenure": "2022 to 2026"
-    },
-    "upSarpanch": {
-      "title": "Up-Sarpanch",
-      "name": "Shri. Rishikesh Dhondu More",
-      "phone": "+91 8169891600",
-      "tenure": "2022 to November 2026"
-    },
-    "gramSevak": {
-      "title": "Gram Panchayat Adhikari",
-      "name": "Shri. Mayuresh Nitin Wakade",
-      "phone": "+91 9881154658",
-      "role": "Gram Panchayat Officer"
-    },
-    "staff": {
-      "title": "Staff",
-      "clerk": {
-        "title": "Clerk",
-        "name": "Smt. Mamta Mangesh Jadhav",
-        "phone": "+91 9325565747"
-      },
-      "operator": {
-        "title": "Computer Operator",
-        "name": "Smt. Preeti Rupesh Paatne",
-        "phone": "+91 9082891174"
-      },
-      "shipai": {
-        "title": "Shipai",
-        "name": "Shri. Sandesh Shreedhar Salunkhe",
-        "phone": "+91 8080789174"
-      },
-      "other": {
-        "title": "Gram Rojgaar Sevak (MGNREGA)",
-        "name": "Shri. Sambhaji Tanaji Gorgaokar",
-        "phone": "+91 8669059247"
-      }
-    },
-    "panch": {
-      "title": "Panch Members",
-      "total": "90 Members",
-      "ward": "Ward"
-    }
+    "leadership": "Leadership",
+    "staff": "Staff",
+    "panch": "Panch Members",
+    "tenure": "Tenure",
+    "ward": "Ward",
+    "viewAll": "View all members"
   },
   "works": {
     "title": "Development Works",
     "subtitle": "Recent projects and initiatives for village development",
     "completed": "Completed",
     "inProgress": "In Progress",
+    "planned": "Planned",
     "budget": "Budget",
-    "year": "Year"
+    "year": "Year",
+    "viewAll": "View all works",
+    "totalProjects": "Total Projects",
+    "totalCompleted": "Completed",
+    "totalInvested": "Lakhs Invested"
   },
-  "notifications": {
-    "title": "Important Notices",
+  "notices": {
+    "title": "Notices & Announcements",
     "subtitle": "Latest news and announcements from Gram Panchayat",
-    "viewAll": "View All Notices",
-    "important": "Important",
-    "general": "General",
-    "meeting": "Meeting",
-    "scheme": "Scheme"
+    "viewAll": "View all notices",
+    "categories": {
+      "important": "Important",
+      "general": "General",
+      "meeting": "Meeting",
+      "scheme": "Scheme",
+      "tender": "Tender"
+    },
+    "publishedOn": "Published on",
+    "expiresOn": "Expires on",
+    "attachments": "Attachments",
+    "noNotices": "No notices to display."
+  },
+  "schemes": {
+    "title": "Government Schemes",
+    "subtitle": "Schemes and benefits available for villagers",
+    "eligibility": "Eligibility",
+    "documentsRequired": "Documents Required",
+    "applicationProcess": "How to Apply",
+    "beneficiaries": "Beneficiaries",
+    "categories": {
+      "central": "Central Government",
+      "state": "State Government",
+      "panchayat": "Panchayat Scheme"
+    }
+  },
+  "gramSabha": {
+    "title": "Gram Sabha & Meetings",
+    "subtitle": "Meeting agendas, minutes, and resolutions",
+    "agenda": "Agenda",
+    "resolutions": "Resolutions",
+    "minutes": "Download Minutes",
+    "meetingTypes": {
+      "gram-sabha": "Gram Sabha",
+      "monthly": "Monthly Meeting",
+      "special": "Special Meeting"
+    }
+  },
+  "rti": {
+    "title": "RTI & Grievance Redressal",
+    "subtitle": "Right to Information and grievance contacts",
+    "officersTitle": "Information Officers",
+    "grievanceTitle": "Grievance Mechanism",
+    "officerTypes": {
+      "pio": "Public Information Officer (PIO)",
+      "apio": "Assistant PIO",
+      "appellate": "First Appellate Authority"
+    },
+    "grievanceText": "For grievances, contact the Sarpanch directly or write to the Gram Panchayat Office. Acknowledgement within 7 working days; resolution targeted within 30 days."
+  },
+  "charter": {
+    "title": "Citizens' Charter",
+    "subtitle": "Services we provide and our commitments",
+    "service": "Service",
+    "officer": "Responsible Officer",
+    "timeline": "Timeline",
+    "fee": "Fee"
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "Glimpses of village life, events, and development"
+  },
+  "downloads": {
+    "title": "Downloads & Forms",
+    "subtitle": "Application forms and official documents",
+    "fileSize": "Size",
+    "lastUpdated": "Updated",
+    "categories": {
+      "form": "Forms",
+      "report": "Reports",
+      "circular": "Circulars",
+      "other": "Other"
+    }
   },
   "contact": {
     "title": "Contact Us",
@@ -97,7 +156,7 @@
     "office": {
       "title": "Office Information",
       "address": "Address",
-      "addressFull": "Gram Panchayat Office\nAstan, Ratnagiri Taluka\nRatnagiri District, Maharashtra - 415730",
+      "addressFull": "Gram Panchayat Office\nAstan, Khed Taluka\nRatnagiri District, Maharashtra - 415730",
       "phone": "Phone",
       "email": "Email"
     },
@@ -107,19 +166,101 @@
       "saturday": "Saturday",
       "sunday": "Sunday",
       "closed": "Closed",
-      "note": "Note: For emergency services, please contact the Sarpanch directly."
+      "note": "For emergency services, please contact the Sarpanch directly."
     }
+  },
+  "about": {
+    "title": "About the Village",
+    "subtitle": "History, geography, and community"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How we handle information on this website"
   },
   "footer": {
     "mission": "Committed to village development and community welfare",
-    "copyright": "© 2024 Astan Gram Panchayat. All rights reserved."
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact",
+    "copyright": "Astan Gram Panchayat. All rights reserved."
+  },
+  "common": {
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "backToHome": "Back to home",
+    "back": "Back",
+    "download": "Download",
+    "page": "Page",
+    "of": "of",
+    "noResults": "No results to display.",
+    "lastUpdated": "Last updated",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleLanguage": "Switch language",
+    "search": "Search",
+    "loading": "Loading"
   },
   "info": {
-    "established": "Established: 11/08/1984",
-    "area": "Village Area: 3,429.106 Hectares",
-    "anganwadi": "Anganwadi Centers: 5",
-    "schools": "Government Schools: 6",
-    "privateSchools": "Private Schools: 2"
+    "established": "Established",
+    "establishedDate": "11 August 1984",
+    "area": "Village Area",
+    "areaValue": "3,429.106 Hectares",
+    "anganwadi": "Anganwadi Centers",
+    "schools": "Government Schools",
+    "privateSchools": "Private Schools"
+  },
+  "meta": {
+    "home": {
+      "title": "Astan Gram Panchayat — Khed, Ratnagiri, Maharashtra",
+      "description": "Official website of Astan Gram Panchayat. Members, development works, schemes, notices, and citizen services for Astan village, Khed taluka, Ratnagiri district."
+    },
+    "about": {
+      "title": "About — Astan Gram Panchayat",
+      "description": "Learn about Astan village in Khed taluka, Ratnagiri district — history, geography, demographics, and community."
+    },
+    "members": {
+      "title": "Members — Astan Gram Panchayat",
+      "description": "Sarpanch, Up-Sarpanch, Gram Panchayat Officer, staff, and Panch members of Astan Gram Panchayat."
+    },
+    "works": {
+      "title": "Development Works — Astan Gram Panchayat",
+      "description": "Completed and ongoing development projects in Astan village — roads, water, sanitation, schools, and more."
+    },
+    "notices": {
+      "title": "Notices — Astan Gram Panchayat",
+      "description": "Official announcements, Gram Sabha meeting notices, and circulars from Astan Gram Panchayat."
+    },
+    "schemes": {
+      "title": "Government Schemes — Astan Gram Panchayat",
+      "description": "Central, state, and panchayat-level welfare schemes available to citizens of Astan village."
+    },
+    "gramSabha": {
+      "title": "Gram Sabha — Astan Gram Panchayat",
+      "description": "Gram Sabha meeting agendas, minutes, and resolutions for Astan village."
+    },
+    "rti": {
+      "title": "RTI & Grievance — Astan Gram Panchayat",
+      "description": "Right to Information contacts and grievance redressal mechanism for Astan Gram Panchayat."
+    },
+    "charter": {
+      "title": "Citizens' Charter — Astan Gram Panchayat",
+      "description": "Services offered by Astan Gram Panchayat with timelines, responsible officers, and fees."
+    },
+    "gallery": {
+      "title": "Gallery — Astan Gram Panchayat",
+      "description": "Photo gallery of Astan village events, development works, and community life."
+    },
+    "downloads": {
+      "title": "Downloads — Astan Gram Panchayat",
+      "description": "Application forms, reports, and official documents for download."
+    },
+    "contact": {
+      "title": "Contact — Astan Gram Panchayat",
+      "description": "Contact details, address, phone, email, and office hours of Astan Gram Panchayat."
+    },
+    "privacy": {
+      "title": "Privacy Policy — Astan Gram Panchayat",
+      "description": "How Astan Gram Panchayat website handles visitor information."
+    }
   }
 }
-

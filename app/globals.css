@@ -1,37 +1,104 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface */
+  --color-bg: #FFFBF0;          /* warm cream body */
+  --color-card: #FFFFFF;        /* white cards on cream */
+  --color-card-soft: #FAF6E8;   /* cream-tinted alt section */
+
+  /* Ink */
+  --color-ink: #1A202C;
+  --color-ink-secondary: #4A5568;
+  --color-ink-muted: #718096;
+
+  /* Institutional / trust */
+  --color-primary: #1A365D;     /* deep navy */
+  --color-primary-hover: #2C5282;
+  --color-primary-soft: #EBF1F8;
+
+  /* Accent — Indian saffron */
+  --color-accent: #FF9933;
+  --color-accent-hover: #E07B1F;
+  --color-accent-strong: #C2410C;
+  --color-accent-soft: #FFF1DC;
+
+  /* Success — Indian flag green */
+  --color-success: #138808;
+  --color-success-hover: #0E6606;
+  --color-success-soft: #E3F4DC;
+
+  /* Danger / important */
+  --color-danger: #C53030;
+  --color-danger-soft: #FED7D7;
+
+  /* Border */
+  --color-border: #E2D9C0;       /* warm tan */
+  --color-border-soft: #F0E8D0;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+html[lang="mr"] {
+  --font-sans: var(--font-devanagari), var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-display), var(--font-devanagari), var(--font-inter), system-ui, sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg: var(--color-bg);
+  --color-card: var(--color-card);
+  --color-card-soft: var(--color-card-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-secondary: var(--color-ink-secondary);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-strong: var(--color-accent-strong);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-success: var(--color-success);
+  --color-success-hover: var(--color-success-hover);
+  --color-success-soft: var(--color-success-soft);
+  --color-danger: var(--color-danger);
+  --color-danger-soft: var(--color-danger-soft);
+  --color-border: var(--color-border);
+  --color-border-soft: var(--color-border-soft);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
 
-/* Mobile-first touch targets - minimum 44x44px for accessibility */
+h1, h2, .font-display {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+html[lang="mr"] h1,
+html[lang="mr"] h2,
+html[lang="mr"] .font-display {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .touch-target {
   min-height: 44px;
   min-width: 44px;
 }
 
-/* Line clamp utility for text truncation */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -44,4 +111,31 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
