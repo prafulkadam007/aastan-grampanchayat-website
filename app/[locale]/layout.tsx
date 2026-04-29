@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
 import { inter, notoDevanagari, tiroDevanagari } from '@/lib/fonts';
@@ -10,9 +11,13 @@ import { Footer } from '@/components/layout/Footer';
 import { SkipToContent } from '@/components/layout/SkipToContent';
 import { StickyCallBar } from '@/components/layout/StickyCallBar';
 import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
+import { ComingSoon } from '@/components/ComingSoon';
 import { getMemberById } from '@/content/repositories';
 import type { Locale } from '@/content/types';
 import '../globals.css';
+
+const COMING_SOON = process.env.NEXT_PUBLIC_COMING_SOON === 'true';
+const PREVIEW_COOKIE = 'gp_preview';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -27,6 +32,18 @@ export async function generateMetadata({
   if (!routing.locales.includes(locale as Locale)) {
     return {};
   }
+
+  if (COMING_SOON) {
+    return {
+      metadataBase: new URL(SITE_URL),
+      title: 'लवकरच येत आहे · Coming Soon — आस्तान ग्रामपंचायत',
+      description:
+        'आस्तान ग्रामपंचायतीचे अधिकृत संकेतस्थळ लवकरच सुरू होत आहे. The official website of Astan Gram Panchayat is launching soon.',
+      icons: { icon: '/icon.png' },
+      robots: { index: false, follow: false },
+    };
+  }
+
   const t = await getTranslations({ locale, namespace: 'meta.home' });
   const canonical = canonicalFor(locale as Locale, '');
   return {
@@ -58,6 +75,21 @@ export default async function LocaleLayout({
     notFound();
   }
   setRequestLocale(locale);
+
+  if (COMING_SOON) {
+    const cookieStore = await cookies();
+    const hasPreview = cookieStore.get(PREVIEW_COOKIE)?.value === '1';
+    if (!hasPreview) {
+      return (
+        <html lang={locale} className={`scroll-smooth ${inter.variable} ${notoDevanagari.variable} ${tiroDevanagari.variable}`}>
+          <body>
+            <ComingSoon />
+          </body>
+        </html>
+      );
+    }
+  }
+
   const messages = await getMessages();
   const typedLocale = locale as Locale;
   const sarpanch = await getMemberById('sarpanch');
