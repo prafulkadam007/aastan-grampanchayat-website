@@ -20,7 +20,7 @@ export const rtiContacts: RtiContact[] = [
     id: 'appellate',
     type: 'appellate',
     designation: { mr: 'प्रथम अपीलीय अधिकारी (सरपंच)', en: 'First Appellate Authority (Sarpanch)' },
-    name: { mr: 'सौ. ज्योती विजय निकम', en: 'Smt. Jyoti Vijay Nikam' },
+    name: { mr: 'सौ. ज्योती विलास निकम', en: 'Smt. Jyoti Vilas Nikam' },
     phone: '+917822029166',
   },
 ];

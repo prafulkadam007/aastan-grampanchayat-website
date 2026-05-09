@@ -13,7 +13,7 @@ export async function HeroSection({ locale }: { locale: Locale }) {
   const village = await getVillage();
 
   const officeBadge =
-    locale === 'mr' ? 'सोम–शुक्र • १०:०० – ५:००' : 'Mon–Fri • 10:00 – 5:00';
+    locale === 'mr' ? 'सोम–शुक्र • ९:४५ – ६:१५' : 'Mon–Fri • 9:45 – 6:15';
 
   return (
     <section
