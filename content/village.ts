@@ -9,7 +9,7 @@ export const village: VillageIdentity = {
   pin: '415730',
   established: '1984-08-11',
   area: { hectares: 3521.77 },
-  population: { total: 2985, male: 1042, female: 1943 },
+  population: { total: 2185, male: 1042, female: 1143 },
   households: 686,
   anganwadiCount: 5,
   govtSchoolCount: 6,
