@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { WorksCarousel, type CarouselSlide } from './WorksCarousel';
 import { getWorks } from '@/content/repositories';
 import { formatINR, pickLocale } from '@/lib/i18n-helpers';
@@ -33,20 +34,24 @@ export async function WorksPreview({ locale }: { locale: Locale }) {
   return (
     <section className="py-12 sm:py-16 bg-[var(--color-bg)]" id="works">
       <Container>
-        <SectionHeading
-          eyebrow={locale === 'mr' ? 'ग्रामविकास' : 'Village Development'}
-          title={t('title')}
-          subtitle={t('subtitle')}
-        />
-        <WorksCarousel
-          slides={slides}
-          prevLabel={locale === 'mr' ? 'मागील स्लाइड' : 'Previous slide'}
-          nextLabel={locale === 'mr' ? 'पुढील स्लाइड' : 'Next slide'}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={locale === 'mr' ? 'ग्रामविकास' : 'Village Development'}
+            title={t('title')}
+            subtitle={t('subtitle')}
+          />
+        </Reveal>
+        <Reveal delay={120}>
+          <WorksCarousel
+            slides={slides}
+            prevLabel={locale === 'mr' ? 'मागील स्लाइड' : 'Previous slide'}
+            nextLabel={locale === 'mr' ? 'पुढील स्लाइड' : 'Next slide'}
+          />
+        </Reveal>
         <div className="mt-8 text-center">
           <Link
             href="/works"
-            className="inline-flex items-center gap-1 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white px-6 py-3 rounded-lg font-semibold transition touch-target"
+            className="inline-flex items-center gap-1 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white px-6 py-3 rounded-lg font-semibold transition touch-target lift-on-hover"
           >
             {t('viewAll')}
             <ChevronRight className="w-4 h-4" aria-hidden />

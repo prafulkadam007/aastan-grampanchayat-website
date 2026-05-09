@@ -18,7 +18,7 @@ export function DownloadCard({
   return (
     <a
       href={item.href}
-      className="flex items-start gap-4 p-5 bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] hover:shadow-md transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+      className="flex items-start gap-4 p-5 bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] lift-on-hover"
     >
       <div className="w-12 h-12 rounded-md bg-[var(--color-accent-soft)] flex items-center justify-center flex-shrink-0">
         <FileText className="w-6 h-6 text-[var(--color-accent-strong)]" aria-hidden />

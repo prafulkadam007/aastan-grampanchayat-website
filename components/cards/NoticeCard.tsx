@@ -40,7 +40,7 @@ export function NoticeCard({
 }) {
   return (
     <article
-      className={`bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] border-l-4 ${BORDER[notice.category]} hover:shadow-md transition`}
+      className={`bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] border-l-4 ${BORDER[notice.category]} lift-on-hover`}
     >
       <Link
         href={`/notices/${notice.slug}`}

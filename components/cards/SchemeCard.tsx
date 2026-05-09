@@ -22,7 +22,7 @@ export function SchemeCard({
   readMoreLabel: string;
 }) {
   return (
-    <article className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-5 hover:shadow-md transition flex flex-col">
+    <article className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-5 flex flex-col lift-on-hover">
       <div className="flex items-start gap-3 mb-3">
         <div className="w-10 h-10 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center flex-shrink-0">
           <Landmark className="w-5 h-5 text-[var(--color-accent-strong)]" aria-hidden />

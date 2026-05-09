@@ -22,7 +22,7 @@ export function WorkCard({
 }) {
   const cover = work.images[0];
   return (
-    <article className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] overflow-hidden hover:shadow-md transition flex flex-col">
+    <article className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] overflow-hidden flex flex-col lift-on-hover">
       <Link
         href={`/works`}
         className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"

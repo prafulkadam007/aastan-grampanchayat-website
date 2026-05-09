@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { getVillage } from '@/content/repositories';
 import { pickLocale } from '@/lib/i18n-helpers';
 import type { Locale } from '@/content/types';
@@ -13,9 +14,12 @@ export async function ContactSection({ locale }: { locale: Locale }) {
   return (
     <section className="py-12 sm:py-16 bg-[var(--color-bg)]" id="contact">
       <Container>
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+        <Reveal>
+          <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+        </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8">
+          <Reveal delay={0}>
+            <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover">
             <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] mb-5">
               {t('office.title')}
             </h3>
@@ -55,11 +59,13 @@ export async function ContactSection({ locale }: { locale: Locale }) {
                 </div>
               </li>
             </ul>
-          </div>
-          <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8">
-            <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] mb-5">
-              {t('hours.title')}
-            </h3>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover">
+              <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] mb-5">
+                {t('hours.title')}
+              </h3>
             <ul className="space-y-3">
               <li className="flex justify-between items-center py-2 border-b border-[var(--color-border-soft)]">
                 <span className="text-[var(--color-ink)] font-medium">{t('hours.weekdays')}</span>
@@ -81,7 +87,8 @@ export async function ContactSection({ locale }: { locale: Locale }) {
             <p className="mt-5 p-4 bg-[var(--color-accent-soft)] rounded-lg text-sm text-[var(--color-accent-strong)]">
               {t('hours.note')}
             </p>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </Container>
     </section>
