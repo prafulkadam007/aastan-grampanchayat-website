@@ -39,8 +39,7 @@
     "applyCertificate": "Apply for Certificate",
     "applyCertificateDesc": "Birth, death, income",
     "viewSchemes": "View Schemes",
-    "viewSchemesDesc": "Government benefits",
-    "stickyCallLabel": "Call Sarpanch"
+    "viewSchemesDesc": "Government benefits"
   },
   "stats": {
     "population": "Population",

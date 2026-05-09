@@ -8,9 +8,7 @@ import { alternatesFor, canonicalFor, SITE_URL } from '@/lib/seo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipToContent } from '@/components/layout/SkipToContent';
-import { StickyCallBar } from '@/components/layout/StickyCallBar';
 import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
-import { getMemberById } from '@/content/repositories';
 import type { Locale } from '@/content/types';
 import '../globals.css';
 
@@ -60,8 +58,6 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const typedLocale = locale as Locale;
-  const sarpanch = await getMemberById('sarpanch');
-  const tQuick = await getTranslations({ locale, namespace: 'quickActions' });
 
   return (
     <html lang={locale} className={`scroll-smooth ${inter.variable} ${notoDevanagari.variable} ${tiroDevanagari.variable}`}>
@@ -70,13 +66,10 @@ export default async function LocaleLayout({
         <OrganizationJsonLd locale={typedLocale} />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Header locale={typedLocale} />
-          <main id="main-content" tabIndex={-1} className="min-h-screen pb-24 lg:pb-0">
+          <main id="main-content" tabIndex={-1} className="min-h-screen">
             {children}
           </main>
           <Footer locale={typedLocale} />
-          {sarpanch?.phone ? (
-            <StickyCallBar phone={sarpanch.phone} label={tQuick('stickyCallLabel')} />
-          ) : null}
         </NextIntlClientProvider>
       </body>
     </html>
