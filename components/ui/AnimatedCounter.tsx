@@ -10,7 +10,7 @@ interface AnimatedCounterProps {
   durationMs?: number;
 }
 
-export function AnimatedCounter({ value, locale, durationMs = 1400 }: AnimatedCounterProps) {
+export function AnimatedCounter({ value, locale, durationMs = 2000 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(0);
 

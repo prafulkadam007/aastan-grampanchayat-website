@@ -32,22 +32,22 @@ export async function HeroSection({ locale }: { locale: Locale }) {
                 {pickLocale(village.name, locale)}
               </p>
             </Reveal>
-            <Reveal delay={150}>
+            <Reveal delay={220}>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] mb-3 leading-tight">
                 {t('title')}
               </h1>
             </Reveal>
-            <Reveal delay={300}>
+            <Reveal delay={440}>
               <p className="text-base sm:text-lg md:text-xl text-[var(--color-ink-secondary)] mb-4">
                 {t('subtitle')}
               </p>
             </Reveal>
-            <Reveal delay={420}>
+            <Reveal delay={620}>
               <p className="text-xs sm:text-sm text-[var(--color-ink-muted)] mb-6">
                 {tInfo('established')}: {formatDate(village.established, locale)}
               </p>
             </Reveal>
-            <Reveal delay={560}>
+            <Reveal delay={820}>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <Link
                   href="/members"
@@ -65,7 +65,7 @@ export async function HeroSection({ locale }: { locale: Locale }) {
               </div>
             </Reveal>
           </div>
-          <Reveal variant="scale-fade" delay={120} className="order-1 md:order-2">
+          <Reveal variant="scale-fade" delay={180} className="order-1 md:order-2">
             <div className="relative h-56 sm:h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl ring-1 ring-[var(--color-border)]">
               <Image
                 src="/images/office.jpg"

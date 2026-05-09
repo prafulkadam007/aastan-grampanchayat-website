@@ -61,7 +61,7 @@ export async function ContactSection({ locale }: { locale: Locale }) {
             </ul>
             </div>
           </Reveal>
-          <Reveal delay={120}>
+          <Reveal delay={200}>
             <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover">
               <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] mb-5">
                 {t('hours.title')}

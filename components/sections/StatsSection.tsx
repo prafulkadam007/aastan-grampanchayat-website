@@ -63,7 +63,7 @@ export async function StatsSection({ locale }: { locale: Locale }) {
             locale={locale}
             label={t('households')}
             accent="bg-[var(--color-success)]"
-            delay={120}
+            delay={180}
           />
           <StatTile
             icon={<Home className="w-8 h-8 sm:w-10 sm:h-10 text-[var(--color-primary)]" aria-hidden />}
@@ -71,7 +71,7 @@ export async function StatsSection({ locale }: { locale: Locale }) {
             locale={locale}
             label={t('anganwadi')}
             accent="bg-[var(--color-primary)]"
-            delay={240}
+            delay={360}
           />
           <StatTile
             icon={<FileText className="w-8 h-8 sm:w-10 sm:h-10 text-[var(--color-accent-strong)]" aria-hidden />}
@@ -79,7 +79,7 @@ export async function StatsSection({ locale }: { locale: Locale }) {
             locale={locale}
             label={t('schools')}
             accent="bg-[var(--color-accent-strong)]"
-            delay={360}
+            delay={540}
           />
         </div>
       </Container>

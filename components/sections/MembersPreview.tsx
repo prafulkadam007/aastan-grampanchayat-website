@@ -24,7 +24,7 @@ export async function MembersPreview({ locale }: { locale: Locale }) {
         <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 p-6">
             {leadership.map((m, idx) => (
-              <Reveal key={m.id} delay={120 + idx * 150}>
+              <Reveal key={m.id} delay={120 + idx * 220}>
                 <div
                   className={
                     idx < leadership.length - 1
