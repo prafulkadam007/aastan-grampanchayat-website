@@ -2,13 +2,21 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+type RevealVariant = 'fade-up' | 'scale-fade';
+
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;
+  variant?: RevealVariant;
   className?: string;
 }
 
-export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
+export function Reveal({
+  children,
+  delay = 0,
+  variant = 'fade-up',
+  className = '',
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -29,10 +37,12 @@ export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
     return () => observer.disconnect();
   }, []);
 
+  const baseClass = variant === 'scale-fade' ? 'reveal-scale' : 'reveal';
+
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? 'is-visible' : ''} ${className}`.trim()}
+      className={`${baseClass} ${visible ? 'is-visible' : ''} ${className}`.trim()}
       style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}

@@ -94,7 +94,7 @@ export async function QuickActionsSection({ locale }: { locale: Locale }) {
               iconColor="text-white"
             />
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal delay={120}>
             <ActionTile
               href="/downloads"
               icon={<FileText className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden />}
@@ -105,7 +105,7 @@ export async function QuickActionsSection({ locale }: { locale: Locale }) {
               iconColor="text-white"
             />
           </Reveal>
-          <Reveal delay={160}>
+          <Reveal delay={240}>
             <ActionTile
               href="/rti"
               icon={<MessageSquareWarning className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden />}
@@ -116,7 +116,7 @@ export async function QuickActionsSection({ locale }: { locale: Locale }) {
               iconColor="text-white"
             />
           </Reveal>
-          <Reveal delay={240}>
+          <Reveal delay={360}>
             <ActionTile
               href="/schemes"
               icon={<Landmark className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden />}

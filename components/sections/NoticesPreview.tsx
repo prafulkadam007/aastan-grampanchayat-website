@@ -20,7 +20,7 @@ export async function NoticesPreview({ locale }: { locale: Locale }) {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {notices.map((n, i) => (
-            <Reveal key={n.id} delay={i * 100}>
+            <Reveal key={n.id} delay={i * 120}>
               <NoticeCard
                 notice={n}
                 locale={locale}

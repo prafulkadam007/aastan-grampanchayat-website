@@ -21,24 +21,23 @@ export async function MembersPreview({ locale }: { locale: Locale }) {
             subtitle={t('subtitle')}
           />
         </Reveal>
-        <Reveal delay={120}>
-          <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 p-6">
-              {leadership.map((m, idx) => (
+        <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 p-6">
+            {leadership.map((m, idx) => (
+              <Reveal key={m.id} delay={120 + idx * 150}>
                 <div
-                  key={m.id}
                   className={
                     idx < leadership.length - 1
-                      ? 'border-b sm:border-b-0 sm:border-r border-[var(--color-border-soft)] pb-4 sm:pb-0 sm:pr-4'
-                      : ''
+                      ? 'border-b sm:border-b-0 sm:border-r border-[var(--color-border-soft)] pb-4 sm:pb-0 sm:pr-4 h-full'
+                      : 'h-full'
                   }
                 >
                   <MemberCard member={m} locale={locale} size="md" />
                 </div>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
+        </div>
         <div className="mt-6 text-center">
           <Link
             href="/members"
