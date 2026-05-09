@@ -145,16 +145,16 @@ html[lang="mr"] .font-display {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(1.03);
+  transform: scale(1.08) translateY(8px);
   transition:
-    opacity 1700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1700ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 2400ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 2400ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
 .reveal-scale.is-visible {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
 }
 
 .lift-on-hover {

@@ -24,17 +24,23 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
 
+    let rafId = 0;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
           observer.disconnect();
+          rafId = requestAnimationFrame(() => {
+            rafId = requestAnimationFrame(() => setVisible(true));
+          });
         }
       },
       { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const baseClass = variant === 'scale-fade' ? 'reveal-scale' : 'reveal';
