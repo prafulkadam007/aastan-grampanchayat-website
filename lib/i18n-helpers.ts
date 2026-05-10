@@ -26,17 +26,16 @@ export function formatINR(amount: number, locale: Locale): string {
     const num = crore.toLocaleString(locale === 'mr' ? 'mr-IN' : 'en-IN', {
       maximumFractionDigits: 2,
     });
-    return locale === 'mr' ? `₹ ${num} कोटी` : `₹ ${num} Cr`;
+    return locale === 'mr' ? `${num} कोटी` : `${num} Cr`;
   }
   if (amount >= 100_000) {
     const lakh = amount / 100_000;
     const num = lakh.toLocaleString(locale === 'mr' ? 'mr-IN' : 'en-IN', {
       maximumFractionDigits: 2,
     });
-    return locale === 'mr' ? `₹ ${num} लाख` : `₹ ${num} Lakh`;
+    return locale === 'mr' ? `${num} लाख` : `${num} Lakh`;
   }
-  const num = amount.toLocaleString(locale === 'mr' ? 'mr-IN' : 'en-IN');
-  return `₹ ${num}`;
+  return amount.toLocaleString(locale === 'mr' ? 'mr-IN' : 'en-IN');
 }
 
 export function localizeNumber(n: number, locale: Locale): string {
