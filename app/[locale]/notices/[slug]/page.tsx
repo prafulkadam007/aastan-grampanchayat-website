@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Calendar, Download } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { Reveal } from '@/components/ui/Reveal';
 import { Badge, type BadgeTone } from '@/components/ui/Badge';
 import { getNoticeBySlug, getNotices } from '@/content/repositories';
 import { canonicalFor, alternatesFor, SITE_URL } from '@/lib/seo';
@@ -73,21 +74,30 @@ export default async function NoticeDetailPage({
         ]}
       />
       <article>
-        <div className="flex items-center gap-2 mb-3">
-          <Badge tone={TONE[notice.category]}>{t(`categories.${notice.category}`)}</Badge>
-          <span className="inline-flex items-center gap-1 text-sm text-[var(--color-ink-secondary)]">
-            <Calendar className="w-4 h-4" aria-hidden />
-            {formatDate(notice.publishedAt, locale)}
-          </span>
-        </div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
-          {pickLocale(notice.title, locale)}
-        </h1>
-        <p className="text-lg text-[var(--color-ink-secondary)] mb-6">{pickLocale(notice.summary, locale)}</p>
-        <div className="prose max-w-none text-[var(--color-ink)] whitespace-pre-line">
-          {pickLocale(notice.body, locale)}
-        </div>
+        <Reveal>
+          <div className="flex items-center gap-2 mb-3">
+            <Badge tone={TONE[notice.category]}>{t(`categories.${notice.category}`)}</Badge>
+            <span className="inline-flex items-center gap-1 text-sm text-[var(--color-ink-secondary)]">
+              <Calendar className="w-4 h-4" aria-hidden />
+              {formatDate(notice.publishedAt, locale)}
+            </span>
+          </div>
+        </Reveal>
+        <Reveal delay={120}>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+            {pickLocale(notice.title, locale)}
+          </h1>
+        </Reveal>
+        <Reveal delay={240}>
+          <p className="text-lg text-[var(--color-ink-secondary)] mb-6">{pickLocale(notice.summary, locale)}</p>
+        </Reveal>
+        <Reveal delay={360}>
+          <div className="prose max-w-none text-[var(--color-ink)] whitespace-pre-line">
+            {pickLocale(notice.body, locale)}
+          </div>
+        </Reveal>
         {notice.attachments && notice.attachments.length > 0 ? (
+          <Reveal delay={480}>
           <section className="mt-8" aria-labelledby="attachments">
             <h2 id="attachments" className="text-lg font-semibold text-[var(--color-primary)] mb-3">
               {t('attachments')}
@@ -107,6 +117,7 @@ export default async function NoticeDetailPage({
               ))}
             </ul>
           </section>
+          </Reveal>
         ) : null}
       </article>
       <p className="mt-8 text-sm text-[var(--color-ink-muted)]">

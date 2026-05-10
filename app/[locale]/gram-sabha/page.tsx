@@ -3,6 +3,7 @@ import { Calendar, Download, Users } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Badge } from '@/components/ui/Badge';
 import { getMeetings } from '@/content/repositories';
@@ -39,13 +40,15 @@ export default async function GramSabhaPage({
   return (
     <Container className="py-10 sm:py-14 max-w-4xl">
       <Breadcrumbs items={[{ label: tNav('home'), href: '/' }, { label: tNav('gramSabha') }]} />
-      <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      <Reveal>
+        <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      </Reveal>
 
       <div className="space-y-6">
-        {meetings.map((meeting) => (
+        {meetings.map((meeting, idx) => (
+          <Reveal key={meeting.id} delay={idx * 120}>
           <article
-            key={meeting.id}
-            className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6"
+            className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 lift-on-hover"
           >
             <div className="flex flex-wrap items-center gap-3 mb-3">
               <Badge tone="primary">{t(`meetingTypes.${meeting.type}`)}</Badge>
@@ -91,6 +94,7 @@ export default async function GramSabhaPage({
               </a>
             ) : null}
           </article>
+          </Reveal>
         ))}
       </div>
     </Container>

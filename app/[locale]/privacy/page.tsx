@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { buildMetadata } from '@/lib/seo';
 import type { Locale } from '@/content/types';
@@ -36,7 +37,10 @@ export default async function PrivacyPage({
   return (
     <Container className="py-10 sm:py-14 max-w-3xl">
       <Breadcrumbs items={[{ label: tNav('home'), href: '/' }, { label: tNav('privacy') }]} />
-      <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      <Reveal>
+        <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      </Reveal>
+      <Reveal delay={120}>
       <div className="prose max-w-none text-[var(--color-ink)] space-y-4">
         <h2 className="text-xl font-bold text-[var(--color-primary)] mt-6">
           {isMr ? '१. माहिती संकलन' : '1. Information Collection'}
@@ -71,6 +75,7 @@ export default async function PrivacyPage({
             : 'For privacy questions, contact the Gram Panchayat office.'}
         </p>
       </div>
+      </Reveal>
     </Container>
   );
 }

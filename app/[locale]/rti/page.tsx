@@ -3,6 +3,7 @@ import { Mail, Phone } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { getRtiContacts } from '@/content/repositories';
 import { buildMetadata } from '@/lib/seo';
@@ -38,15 +39,20 @@ export default async function RtiPage({
   return (
     <Container className="py-10 sm:py-14 max-w-4xl">
       <Breadcrumbs items={[{ label: tNav('home'), href: '/' }, { label: tNav('rti') }]} />
-      <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      <Reveal>
+        <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      </Reveal>
 
       <section className="mb-10" aria-labelledby="officers-heading">
-        <h2 id="officers-heading" className="text-xl font-bold text-[var(--color-primary)] mb-5">
-          {t('officersTitle')}
-        </h2>
+        <Reveal>
+          <h2 id="officers-heading" className="text-xl font-bold text-[var(--color-primary)] mb-5">
+            {t('officersTitle')}
+          </h2>
+        </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {contacts.map((c) => (
-            <article key={c.id} className="bg-[var(--color-card)] rounded-xl shadow-sm p-5 border border-[var(--color-border-soft)]">
+          {contacts.map((c, idx) => (
+            <Reveal key={c.id} delay={idx * 120}>
+            <article className="bg-[var(--color-card)] rounded-xl shadow-sm p-5 border border-[var(--color-border-soft)] lift-on-hover h-full">
               <p className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase mb-2">
                 {t(`officerTypes.${c.type}`)}
               </p>
@@ -73,16 +79,19 @@ export default async function RtiPage({
                 </a>
               ) : null}
             </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section aria-labelledby="grievance-heading" className="bg-[var(--color-accent-soft)] rounded-xl p-6">
-        <h2 id="grievance-heading" className="text-xl font-bold text-[var(--color-primary)] mb-3">
-          {t('grievanceTitle')}
-        </h2>
-        <p className="text-[var(--color-ink)]">{t('grievanceText')}</p>
-      </section>
+      <Reveal>
+        <section aria-labelledby="grievance-heading" className="bg-[var(--color-accent-soft)] rounded-xl p-6">
+          <h2 id="grievance-heading" className="text-xl font-bold text-[var(--color-primary)] mb-3">
+            {t('grievanceTitle')}
+          </h2>
+          <p className="text-[var(--color-ink)]">{t('grievanceText')}</p>
+        </section>
+      </Reveal>
     </Container>
   );
 }

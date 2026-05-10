@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { Reveal } from '@/components/ui/Reveal';
 import { Badge, type BadgeTone } from '@/components/ui/Badge';
 import { getSchemeBySlug, getSchemes } from '@/content/repositories';
 import { canonicalFor, alternatesFor, SITE_URL } from '@/lib/seo';
@@ -70,52 +71,62 @@ export default async function SchemeDetailPage({
         ]}
       />
       <article>
-        <Badge tone={TONE[scheme.category]} className="mb-3">
-          {t(`categories.${scheme.category}`)}
-        </Badge>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
-          {pickLocale(scheme.title, locale)}
-        </h1>
-        <p className="text-lg text-[var(--color-ink-secondary)] mb-6">{pickLocale(scheme.shortDescription, locale)}</p>
-        <div className="prose max-w-none text-[var(--color-ink)] mb-8 whitespace-pre-line">
-          {pickLocale(scheme.body, locale)}
-        </div>
+        <Reveal>
+          <Badge tone={TONE[scheme.category]} className="mb-3">
+            {t(`categories.${scheme.category}`)}
+          </Badge>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+            {pickLocale(scheme.title, locale)}
+          </h1>
+          <p className="text-lg text-[var(--color-ink-secondary)] mb-6">{pickLocale(scheme.shortDescription, locale)}</p>
+          <div className="prose max-w-none text-[var(--color-ink)] mb-8 whitespace-pre-line">
+            {pickLocale(scheme.body, locale)}
+          </div>
+        </Reveal>
 
-        <section className="mb-6 bg-[var(--color-accent-soft)] rounded-xl p-5">
-          <h2 className="text-lg font-bold text-[var(--color-primary)] mb-3">{t('eligibility')}</h2>
-          <ul className="list-disc pl-5 space-y-1 text-[var(--color-ink)]">
-            {pickLocale(scheme.eligibility, locale).map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </section>
+        <Reveal delay={120}>
+          <section className="mb-6 bg-[var(--color-accent-soft)] rounded-xl p-5">
+            <h2 className="text-lg font-bold text-[var(--color-primary)] mb-3">{t('eligibility')}</h2>
+            <ul className="list-disc pl-5 space-y-1 text-[var(--color-ink)]">
+              {pickLocale(scheme.eligibility, locale).map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
 
-        <section className="mb-6 bg-[var(--color-success-soft)] rounded-xl p-5">
-          <h2 className="text-lg font-bold text-[var(--color-primary)] mb-3">{t('documentsRequired')}</h2>
-          <ul className="list-disc pl-5 space-y-1 text-[var(--color-ink)]">
-            {pickLocale(scheme.documentsRequired, locale).map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </section>
+        <Reveal delay={240}>
+          <section className="mb-6 bg-[var(--color-success-soft)] rounded-xl p-5">
+            <h2 className="text-lg font-bold text-[var(--color-primary)] mb-3">{t('documentsRequired')}</h2>
+            <ul className="list-disc pl-5 space-y-1 text-[var(--color-ink)]">
+              {pickLocale(scheme.documentsRequired, locale).map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
 
-        <section className="mb-6 bg-[var(--color-primary-soft)] rounded-xl p-5">
-          <h2 className="text-lg font-bold text-[var(--color-primary)] mb-3">{t('applicationProcess')}</h2>
-          <p className="text-[var(--color-ink)] whitespace-pre-line">
-            {pickLocale(scheme.applicationProcess, locale)}
-          </p>
-        </section>
+        <Reveal delay={360}>
+          <section className="mb-6 bg-[var(--color-primary-soft)] rounded-xl p-5">
+            <h2 className="text-lg font-bold text-[var(--color-primary)] mb-3">{t('applicationProcess')}</h2>
+            <p className="text-[var(--color-ink)] whitespace-pre-line">
+              {pickLocale(scheme.applicationProcess, locale)}
+            </p>
+          </section>
+        </Reveal>
 
         {scheme.authorityLink ? (
-          <a
-            href={scheme.authorityLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[var(--color-accent-strong)] hover:text-[var(--color-accent-hover)] font-semibold"
-          >
-            <ExternalLink className="w-4 h-4" aria-hidden />
-            {scheme.authorityLink}
-          </a>
+          <Reveal delay={480}>
+            <a
+              href={scheme.authorityLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[var(--color-accent-strong)] hover:text-[var(--color-accent-hover)] font-semibold"
+            >
+              <ExternalLink className="w-4 h-4" aria-hidden />
+              {scheme.authorityLink}
+            </a>
+          </Reveal>
         ) : null}
       </article>
       <script

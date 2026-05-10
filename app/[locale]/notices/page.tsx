@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { NoticeCard } from '@/components/cards/NoticeCard';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
@@ -38,18 +39,23 @@ export default async function NoticesPage({
   return (
     <Container className="py-10 sm:py-14">
       <Breadcrumbs items={[{ label: tNav('home'), href: '/' }, { label: tNav('notices') }]} />
-      <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      <Reveal>
+        <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      </Reveal>
       {notices.length === 0 ? (
-        <EmptyState title={t('noNotices')} />
+        <Reveal>
+          <EmptyState title={t('noNotices')} />
+        </Reveal>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {notices.map((n) => (
-            <NoticeCard
-              key={n.id}
-              notice={n}
-              locale={locale}
-              categoryLabel={t(`categories.${n.category}`)}
-            />
+          {notices.map((n, idx) => (
+            <Reveal key={n.id} delay={idx * 120}>
+              <NoticeCard
+                notice={n}
+                locale={locale}
+                categoryLabel={t(`categories.${n.category}`)}
+              />
+            </Reveal>
           ))}
         </div>
       )}

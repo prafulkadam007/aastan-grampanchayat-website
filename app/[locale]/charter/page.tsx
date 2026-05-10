@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { getCharter } from '@/content/repositories';
 import { buildMetadata } from '@/lib/seo';
@@ -37,7 +38,10 @@ export default async function CharterPage({
   return (
     <Container className="py-10 sm:py-14 max-w-5xl">
       <Breadcrumbs items={[{ label: tNav('home'), href: '/' }, { label: tNav('charter') }]} />
-      <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      <Reveal>
+        <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      </Reveal>
+      <Reveal delay={120}>
       <div className="overflow-x-auto bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)]">
         <table className="w-full text-sm sm:text-base">
           <caption className="sr-only">{t('title')}</caption>
@@ -73,6 +77,7 @@ export default async function CharterPage({
           </tbody>
         </table>
       </div>
+      </Reveal>
     </Container>
   );
 }

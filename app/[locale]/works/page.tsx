@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Reveal } from '@/components/ui/Reveal';
 import { WorkCard } from '@/components/cards/WorkCard';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { getWorks } from '@/content/repositories';
@@ -43,10 +44,14 @@ export default async function WorksPage({
   return (
     <Container className="py-10 sm:py-14">
       <Breadcrumbs items={[{ label: tNav('home'), href: '/' }, { label: tNav('works') }]} />
-      <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      <Reveal>
+        <SectionHeading title={t('title')} subtitle={t('subtitle')} align="left" as="h1" />
+      </Reveal>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {works.map((w) => (
-          <WorkCard key={w.id} work={w} locale={locale} statusLabel={t(STATUS_KEY[w.status])} />
+        {works.map((w, idx) => (
+          <Reveal key={w.id} delay={idx * 120}>
+            <WorkCard work={w} locale={locale} statusLabel={t(STATUS_KEY[w.status])} />
+          </Reveal>
         ))}
       </div>
     </Container>
