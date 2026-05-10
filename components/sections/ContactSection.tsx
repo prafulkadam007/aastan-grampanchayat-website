@@ -17,9 +17,9 @@ export async function ContactSection({ locale }: { locale: Locale }) {
         <Reveal>
           <SectionHeading title={t('title')} subtitle={t('subtitle')} />
         </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <Reveal delay={0}>
-            <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
+          <Reveal delay={0} className="h-full">
+            <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover h-full">
             <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] mb-5">
               {t('office.title')}
             </h3>
@@ -61,8 +61,8 @@ export async function ContactSection({ locale }: { locale: Locale }) {
             </ul>
             </div>
           </Reveal>
-          <Reveal delay={200}>
-            <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover">
+          <Reveal delay={200} className="h-full">
+            <div className="bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-border-soft)] p-6 sm:p-8 lift-on-hover h-full">
               <h3 className="text-lg sm:text-xl font-bold text-[var(--color-primary)] mb-5">
                 {t('hours.title')}
               </h3>

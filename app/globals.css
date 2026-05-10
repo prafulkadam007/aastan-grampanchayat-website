@@ -81,6 +81,10 @@ h1, h2, .font-display {
   letter-spacing: -0.01em;
 }
 
+html[lang="mr"] {
+  letter-spacing: 0.015em;
+}
+
 html[lang="mr"] h1,
 html[lang="mr"] h2,
 html[lang="mr"] .font-display {
