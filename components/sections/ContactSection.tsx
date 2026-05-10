@@ -73,21 +73,30 @@ export async function ContactSection({ locale }: { locale: Locale }) {
                   {village.officeHours.weekdays}
                 </span>
               </li>
-              <li className="flex justify-between items-center py-2 border-b border-[var(--color-border-soft)]">
-                <span className="text-[var(--color-ink)] font-medium">{t('hours.saturday')}</span>
-                <span
-                  className="text-[var(--color-ink-secondary)]"
-                  dir={village.officeHours.saturday === 'closed' ? undefined : 'ltr'}
-                >
-                  {village.officeHours.saturday === 'closed'
-                    ? t('hours.closed')
-                    : village.officeHours.saturday}
-                </span>
-              </li>
-              <li className="flex justify-between items-center py-2">
-                <span className="text-[var(--color-ink)] font-medium">{t('hours.sunday')}</span>
-                <span className="text-[var(--color-ink-secondary)]">{t('hours.closed')}</span>
-              </li>
+              {village.officeHours.saturday === 'closed' && village.officeHours.sunday === 'closed' ? (
+                <li className="flex justify-between items-center py-2">
+                  <span className="text-[var(--color-ink)] font-medium">{t('hours.weekend')}</span>
+                  <span className="text-[var(--color-ink-secondary)]">{t('hours.closed')}</span>
+                </li>
+              ) : (
+                <>
+                  <li className="flex justify-between items-center py-2 border-b border-[var(--color-border-soft)]">
+                    <span className="text-[var(--color-ink)] font-medium">{t('hours.saturday')}</span>
+                    <span
+                      className="text-[var(--color-ink-secondary)]"
+                      dir={village.officeHours.saturday === 'closed' ? undefined : 'ltr'}
+                    >
+                      {village.officeHours.saturday === 'closed'
+                        ? t('hours.closed')
+                        : village.officeHours.saturday}
+                    </span>
+                  </li>
+                  <li className="flex justify-between items-center py-2">
+                    <span className="text-[var(--color-ink)] font-medium">{t('hours.sunday')}</span>
+                    <span className="text-[var(--color-ink-secondary)]">{t('hours.closed')}</span>
+                  </li>
+                </>
+              )}
             </ul>
             <p className="mt-5 p-4 bg-[var(--color-accent-soft)] rounded-lg text-sm text-[var(--color-accent-strong)]">
               {t('hours.note')}

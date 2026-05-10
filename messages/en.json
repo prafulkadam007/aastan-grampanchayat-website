@@ -164,6 +164,7 @@
       "weekdays": "Monday - Friday",
       "saturday": "Saturday",
       "sunday": "Sunday",
+      "weekend": "Saturday & Sunday",
       "closed": "Closed",
       "note": "For emergency services, please contact the Sarpanch directly."
     }
