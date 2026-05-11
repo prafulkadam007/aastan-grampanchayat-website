@@ -23,9 +23,9 @@ export async function generateMetadata({
   }
   return {
     metadataBase: new URL(SITE_URL),
-    title: 'लवकरच येत आहे · Coming Soon — आस्तान ग्रामपंचायत',
+    title: 'तात्पुरते उपलब्ध नाही · Temporarily Unavailable — आस्तान ग्रामपंचायत',
     description:
-      'आस्तान ग्रामपंचायतीचे अधिकृत संकेतस्थळ लवकरच सुरू होत आहे. The official website of Astan Gram Panchayat is launching soon.',
+      'आस्तान ग्रामपंचायतीचे संकेतस्थळ तात्पुरते उपलब्ध नाही. The Astan Gram Panchayat website is temporarily unavailable.',
     icons: { icon: '/icon.png' },
     robots: { index: false, follow: false },
   };
